@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#172554">
+  <title>مكتبة قبضايا | كل احتياجاتك في مكان واحد</title>
+  <meta name="description" content="مكتبة قبضايا - أدوات مدرسية ومكتبية وقرطاسية، اطلب منتجاتك بسهولة عبر واتساب.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- شريط الإعلان -->
+  <div class="announcement">
+    <p>🎒 كل مستلزماتك المدرسية والمكتبية في مكان واحد</p>
+  </div>
+
+  <!-- رأس الصفحة -->
+  <header class="header">
+    <div class="container header-content">
+
+      <a href="index.html" class="logo">
+        <span class="logo-icon">📚</span>
+        <span>
+          <strong>مكتبة قبضايا</strong>
+          <small>كل اللي تحتاجه عندنا</small>
+        </span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="#home">الرئيسية</a>
+        <a href="#categories">الأقسام</a>
+        <a href="#products">المنتجات</a>
+        <a href="#contact">تواصل معنا</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="cart.html" class="cart-button">
+          🛒 السلة
+          <span id="cartCount">0</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">
+          ☰
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- القائمة للموبايل -->
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#home">الرئيسية</a>
+    <a href="#categories">الأقسام</a>
+    <a href="#products">المنتجات</a>
+    <a href="#contact">تواصل معنا</a>
+  </nav>
+
+  <main>
+
+    <!-- الواجهة الرئيسية -->
+    <section class="hero" id="home">
+      <div class="container hero-content">
+
+        <div class="hero-text">
+          <span class="hero-label">أهلاً بيك في مكتبة قبضايا ✨</span>
+
+          <h1>
+            كل أدواتك
+            <span>في مكان واحد</span>
+          </h1>
+
+          <p>
+            أدوات مدرسية، مستلزمات مكتبية، وأدوات رسم.
+            اختار اللي محتاجه واطلبه بكل سهولة.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#products" class="primary-button">تسوق الآن</a>
+            <a href="#categories" class="secondary-button">اكتشف الأقسام</a>
+          </div>
+        </div>
+
+        <div class="hero-illustration">
+          <div class="hero-circle">
+            <span>✏️</span>
+            <span>📚</span>
+            <span>🎨</span>
+            <span>📐</span>
+            <div class="hero-center">📖</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- مميزات المكتبة -->
+    <section class="features">
+      <div class="container features-grid">
+
+        <div class="feature-item">
+          <span>🚚</span>
+          <div>
+            <strong>طلب سهل</strong>
+            <small>اطلب منتجاتك بسهولة</small>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <span>💰</span>
+          <div>
+            <strong>أسعار واضحة</strong>
+            <small>اعرف السعر قبل الطلب</small>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <span>📱</span>
+          <div>
+            <strong>طلب واتساب</strong>
+            <small>تواصل مباشر مع المكتبة</small>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- الأقسام -->
+    <section class="section" id="categories">
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <span class="section-label">تصفح بسهولة</span>
+            <h2>أقسام المكتبة</h2>
+          </div>
+        </div>
+
+        <div class="categories-grid" id="categoriesContainer">
+
+          <button class="category-card active" data-category="all">
+            <span>🛍️</span>
+            <strong>كل المنتجات</strong>
+          </button>
+
+          <button class="category-card" data-category="أدوات مدرسية">
+            <span>🎒</span>
+            <strong>أدوات مدرسية</strong>
+          </button>
+
+          <button class="category-card" data-category="أدوات مكتبية">
+            <span>📁</span>
+            <strong>أدوات مكتبية</strong>
+          </button>
+
+          <button class="category-card" data-category="أدوات رسم">
+            <span>🎨</span>
+            <strong>أدوات رسم</strong>
+          </button>
+
+          <button class="category-card" data-category="كراسات وكتب">
+            <span>📚</span>
+            <strong>كراسات وكتب</strong>
+          </button>
+
+          <button class="category-card" data-category="أخرى">
+            <span>✨</span>
+            <strong>منتجات أخرى</strong>
+          </button>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- المنتجات -->
+    <section class="section products-section" id="products">
+      <div class="container">
+
+        <div class="section-heading products-heading">
+          <div>
+            <span class="section-label">اختار اللي يناسبك</span>
+            <h2>منتجات المكتبة</h2>
+            <p>كل المنتجات المتاحة عندنا</p>
+          </div>
+
+          <div class="search-box">
+            <span>🔍</span>
+            <input
+              type="search"
+              id="searchInput"
+              placeholder="ابحث عن منتج..."
+              aria-label="ابحث عن منتج"
+            >
+          </div>
+        </div>
+
+        <div id="productsContainer" class="products-grid">
+          <div class="loading-message">
+            <span>⏳</span>
+            <p>جاري تحميل المنتجات...</p>
+          </div>
+        </div>
+
+        <div id="emptyProducts" class="empty-message" hidden>
+          <span>📦</span>
+          <h3>مفيش منتجات هنا حالياً</h3>
+          <p>جرب تبحث عن منتج تاني أو اختار قسم مختلف.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- دعوة للتواصل -->
+    <section class="contact-banner" id="contact">
+      <div class="container contact-content">
+        <div>
+          <span>💬 محتاج مساعدة؟</span>
+          <h2>إحنا في خدمتك!</h2>
+          <p>تواصل مع مكتبة قبضايا مباشرة عن طريق واتساب.</p>
+        </div>
+
+        <a
+          href="https://wa.me/201070606274"
+          target="_blank"
+          rel="noopener"
+          class="whatsapp-button"
+        >
+          تواصل عبر واتساب
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- الفوتر -->
+  <footer class="footer">
+    <div class="container footer-content">
+
+      <a href="index.html" class="footer-logo">
+        📚 مكتبة قبضايا
+      </a>
+
+      <p>كل احتياجاتك المدرسية والمكتبية في مكان واحد ❤️</p>
+
+      <div class="footer-links">
+        <a href="#home">الرئيسية</a>
+        <a href="#products">المنتجات</a>
+        <a href="cart.html">سلة المشتريات</a>
+      </div>
+
+      <small>جميع الحقوق محفوظة © مكتبة قبضايا 2026</small>
+
+    </div>
+  </footer>
+
+  <a
+    class="floating-whatsapp"
+    href="https://wa.me/201070606274"
+    target="_blank"
+    rel="noopener"
+    aria-label="تواصل معنا عبر واتساب"
+  >☏</a>
+
+  <script type="module" src="js/firebase.js"></script>
+  <script type="module" src="js/store.js"></script>
+
+</body>
+</html>

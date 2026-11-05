@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#172554">
+  <title>سلة المشتريات | مكتبة قبضايا</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .cart-page {
+      width: min(1000px, 94%);
+      margin: 45px auto;
+    }
+
+    .cart-title {
+      color: #172554;
+      font-size: 28px;
+      font-weight: 900;
+      margin-bottom: 25px;
+    }
+
+    .cart-layout {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .cart-panel,
+    .checkout-panel {
+      background: white;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 85px 1fr auto;
+      align-items: center;
+      gap: 14px;
+      padding: 15px 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .cart-item img,
+    .cart-placeholder {
+      width: 85px;
+      height: 85px;
+      border-radius: 12px;
+      object-fit: cover;
+      background: #eff6ff;
+    }
+
+    .cart-placeholder {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 32px;
+    }
+
+    .cart-item h3 {
+      color: #172554;
+      font-size: 15px;
+    }
+
+    .cart-item-price {
+      color: #16a34a;
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 9px;
+    }
+
+    .quantity-controls button {
+      width: 27px;
+      height: 27px;
+      background: #eff6ff;
+      color: #172554;
+      border-radius: 7px;
+      font-weight: 900;
+    }
+
+    .remove-button {
+      background: #fee2e2;
+      color: #dc2626;
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .checkout-panel h2 {
+      color: #172554;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .checkout-panel label {
+      display: block;
+      font-size: 13px;
+      font-weight: 800;
+      margin: 12px 0 5px;
+    }
+
+    .checkout-panel input,
+    .checkout-panel textarea {
+      width: 100%;
+      border: 1px solid #dbe3ef;
+      border-radius: 10px;
+      padding: 11px;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .checkout-panel textarea {
+      resize: vertical;
+      min-height: 85px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 14px;
+    }
+
+    .summary-total {
+      color: #16a34a;
+      font-size: 19px;
+      font-weight: 900;
+    }
+
+    .checkout-button {
+      width: 100%;
+      margin-top: 18px;
+      padding: 14px;
+      background: #16a34a;
+      color: white;
+      border-radius: 12px;
+      font-weight: 900;
+      font-size: 15px;
+    }
+
+    .checkout-button:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+    }
+
+    .empty-cart {
+      text-align: center;
+      padding: 55px 15px;
+      color: #64748b;
+    }
+
+    .empty-cart span {
+      font-size: 55px;
+    }
+
+    .empty-cart a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #2563eb;
+      color: white;
+      border-radius: 10px;
+      font-weight: 800;
+    }
+
+    @media(max-width:750px) {
+      .cart-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width:450px) {
+      .cart-item {
+        grid-template-columns: 65px 1fr;
+      }
+
+      .cart-item img,
+      .cart-placeholder {
+        width: 65px;
+        height: 65px;
+      }
+
+      .cart-item > div:last-child {
+        grid-column: 2;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container header-content">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">📚</span>
+        <span>
+          <strong>مكتبة قبضايا</strong>
+          <small>سلة المشتريات</small>
+        </span>
+      </a>
+
+      <a href="index.html" class="cart-button">العودة للمتجر ←</a>
+    </div>
+  </header>
+
+  <main class="cart-page">
+
+    <h1 class="cart-title">🛒 سلة مشترياتك</h1>
+
+    <div id="emptyCart" class="cart-panel empty-cart" hidden>
+      <span>🛍️</span>
+      <h2>السلة فاضية!</h2>
+      <p>لسه مضافتش أي منتجات للسلة.</p>
+      <a href="index.html">ابدأ التسوق</a>
+    </div>
+
+    <div class="cart-layout" id="cartLayout">
+
+      <section class="cart-panel">
+        <h2>المنتجات المختارة</h2>
+        <div id="cartItems"></div>
+      </section>
+
+      <section class="checkout-panel">
+        <h2>بيانات الطلب</h2>
+
+        <form id="checkoutForm">
+
+          <label for="customerName">الاسم بالكامل</label>
+          <input id="customerName" required maxlength="100" placeholder="اكتب اسمك">
+
+          <label for="customerPhone">رقم الهاتف</label>
+          <input id="customerPhone" type="tel" required maxlength="20" placeholder="رقم تليفونك">
+
+          <label for="customerAddress">العنوان</label>
+          <input id="customerAddress" required maxlength="250" placeholder="عنوانك بالتفصيل">
+
+          <label for="customerNotes">ملاحظات إضافية (اختياري)</label>
+          <textarea id="customerNotes" maxlength="500" placeholder="أي تفاصيل إضافية للطلب..."></textarea>
+
+          <div class="summary-row">
+            <span>عدد المنتجات</span>
+            <strong id="totalQuantity">0</strong>
+          </div>
+
+          <div class="summary-row">
+            <span>الإجمالي</span>
+            <strong class="summary-total" id="totalPrice">0 جنيه</strong>
+          </div>
+
+          <button class="checkout-button" id="checkoutButton" type="submit">
+            إرسال الطلب عبر واتساب
+          </button>
+
+          <p style="font-size:11px;color:#64748b;margin-top:10px">
+            سيتم فتح واتساب لإرسال تفاصيل طلبك إلى المكتبة. لا يتم الدفع إلكترونياً من خلال الموقع.
+          </p>
+
+        </form>
+      </section>
+
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <a href="index.html" class="footer-logo">📚 مكتبة قبضايا</a>
+      <p>شكراً لاختيارك مكتبتنا ❤️</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/cart.js"></script>
+
+</body>
+</html>
